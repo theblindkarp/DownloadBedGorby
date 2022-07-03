@@ -16,12 +16,4 @@ public class PlayerMovement : MonoBehaviour
         Vector3 playerInput = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"), 0);
         transform.position = transform.position + playerInput.normalized * speed * Time.deltaTime;
     }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if(col.gameObject.name == "TilledDirt" && col.gameObject.GetComponent<PlantingBehavior>().isPlanted == false)
-        {
-            col.GetComponent<PlantingBehavior>().Plant();
-        }  
-    }
 }
